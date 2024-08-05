@@ -1,25 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
-import Form from './pages/Form';
-import store from './store';
-import '@mantine/core/styles.css';
-import { createTheme, MantineProvider } from '@mantine/core';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import store from "./store";
+import "@mantine/core/styles.css";
+import { createTheme, MantineProvider } from "@mantine/core";
+import Router from "./Router";
+import { BrowserRouter } from "react-router-dom";
 
 const theme = createTheme({
   /** Your theme override here */
 });
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
- <Provider store={store}>
-  <MantineProvider theme={theme}>
-    {/* <App /> */}
-    <Form />
-   </MantineProvider>
+  <Provider store={store}>
+    <MantineProvider theme={theme}>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </MantineProvider>
   </Provider>
 );
 
